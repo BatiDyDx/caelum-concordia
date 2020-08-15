@@ -1,0 +1,66 @@
+html, body{
+    height: 100%;
+    background: #FFCC99;
+    color: #000000
+}
+
+
+.navbar-brand{
+    font-size: 35px;
+    font-family: cursive;
+
+}
+
+.facebook_logo{
+    width: 25px;
+    height: 25px;
+}
+
+.twitter_logo{  
+    width: 30px;
+    height: 30px;
+}
+
+.instagram_logo{
+    width: 25px;
+    height: 25px;
+}
+
+.display{
+    font-family: "Open Sans", sans-serif;
+} 
+
+.contact_list{
+    list-style: none;
+}
+
+.list_title{
+    font-weight: bold;
+    font-family: serif;
+}
+
+.footer_link{
+    text-decoration-style: none;
+    color: inherit;
+}
+
+.content{
+    padding-left: 40px;
+    padding-right: 40px;
+    min-height: 100%;
+}
+
+footer {
+    position: relative;
+    /* padding-block-start: 2.5rem; */
+    bottom: 0;
+    width: 100%;
+    background-color: lightcoral; /* Match the color of the body background */
+    border: 1px solid black;
+}
+
+.footer_div{
+    position: absolute;
+    background-color: lightcoral; /* Match the color of the body background */
+    width: 100%;
+}

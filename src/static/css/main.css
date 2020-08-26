@@ -4,10 +4,13 @@ html, body{
     color: #000000
 }
 
+body{
+    position: relative;
+}
 
 .navbar-brand{
     font-size: 35px;
-    font-family: cursive;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
 
@@ -63,4 +66,21 @@ footer {
     position: absolute;
     background-color: lightcoral; /* Match the color of the body background */
     width: 100%;
+}
+
+.card-row{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.list-group{
+    height:500px;
+    overflow-y: scroll;
+}
+
+.scrollspy-content{
+    background: #fafafaf6;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }

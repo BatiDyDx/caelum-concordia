@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
 </head>
 
 <body>
@@ -36,16 +37,18 @@
 
   <footer>
     <div class="footer_div">
-        <ul class= "contact_list">
-          <p class="list_title">
-            Contacto
-          </p>
+      <figure class= "footer-figure-1">
+        <figcaption class="list_title">
+          Redes Sociales
+        </figcaption>
+        <ul class="contact_list">
           <li>
             <a class="footer_link" href="https://www.instagram.com/caelum.acc/" target="tab">
-              Instagram <img class="instagram_logo" src="{{ url_for('static', filename= 'img/instagram_logo_black.png')}}">
+              Instagram <img class="instagram_logo"
+                src="{{ url_for('static', filename= 'img/instagram_logo_black.png')}}">
             </a>
           </li>
-          <li> 
+          <li>
             <a class="footer_link" href="https://twitter.com/cossipaula231" target="tab">
               Twitter
               <img class='twitter_logo' src="{{ url_for('static', filename= '/img/twitter_logo_black.png')}}">
@@ -57,8 +60,9 @@
             </a>
           </li>
         </ul>
+      </figure>
     </div>
-
+  
   </footer>
 </body>
 

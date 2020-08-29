@@ -1,0 +1,19 @@
+footer{
+    position: relative;
+    /* padding-block-start: 2.5rem; */
+    bottom: 0;
+    width: 100%;
+    background-color: lightcoral; /* Match the color of the body background */
+    border: 1px solid black;
+}
+
+.footer_div{
+    position: absolute;
+    background-color: lightcoral; /* Match the color of the body background */
+    width: 100%;
+}
+
+.footer-figure-1{
+    padding-top: 5px;
+    padding-left: 15px;
+}

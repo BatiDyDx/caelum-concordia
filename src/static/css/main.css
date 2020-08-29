@@ -39,7 +39,9 @@ body{
 
 .list_title{
     font-weight: bold;
-    font-family: serif;
+    font-size: 20px;
+    font-family: sans-serif;
+    padding-left: 10px;
 }
 
 .footer_link{
@@ -51,21 +53,6 @@ body{
     padding-left: 40px;
     padding-right: 40px;
     min-height: 100%;
-}
-
-footer {
-    position: relative;
-    /* padding-block-start: 2.5rem; */
-    bottom: 0;
-    width: 100%;
-    background-color: lightcoral; /* Match the color of the body background */
-    border: 1px solid black;
-}
-
-.footer_div{
-    position: absolute;
-    background-color: lightcoral; /* Match the color of the body background */
-    width: 100%;
 }
 
 .card-row{
@@ -83,4 +70,23 @@ footer {
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.carousels{
+    display: flex;
+    position: relative;
+}
+
+#carousel1, #carousel2{
+    padding-left: 10px;
+    padding-right: 30px;
+    padding-bottom: 15px;
+    width: 50%;
+
+}
+
+#carousel2{
+    float:right;
+    position: absolute;
+    right: 10px;
 }

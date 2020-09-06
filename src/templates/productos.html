@@ -1,5 +1,32 @@
 {% extends 'layout.html'%}
 
 {% block content %}
-<h1>Productos</h1>
+<ul class="list-group" style="height:700px;">
+    <nav id="navbar-about" class="navbar navbar-light bg-light">
+        <a class="navbar-brand mb-01" href style="font-family: Arial, Helvetica, sans-serif;">Nuestros productos</a>
+        <ul class="nav nav-pills">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle btn-primary" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                    aria-expanded="false">Articulos</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                        {% for product in products %}
+                            <a class="dropdown-item" href="#{{product.0}}">{{ product.1 }}</a>
+                            <div role="separator" class="dropdown-divider"></div>
+                        {% endfor %}
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div class= "scrollspy" data-spy="scroll" data-target="#navbar-about" data-offset="0">
+        {% for product in products %}
+        <div class="media pt-3" id="{{ product.0 }}">
+            <img src="{{ product.3 }}" class="media-item mr-3" alt="...">
+            <div class="media-body">
+            <p class="mt-0">{{ product.1 }}</p>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</ul>
 {% endblock %}

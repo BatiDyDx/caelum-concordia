@@ -23,8 +23,7 @@
       <div class="navbar-nav ml-auto">
         <a class="nav-link active" href="/">Home<span class="sr-only">(current)</span></a>
         <a class="nav-link" href="/product">Productos</a>
-        <a class="nav-link" href="/about">Acerca de </a>
-        <a class="nav-link" href="/contact" tabindex="-1" aria-disabled="true">Contacto</a>
+        <a class="nav-link" href="/about" tabindex="-1" aria-disabled="true">Acerca</a>
       </div>
     </div>
   </nav>
@@ -41,20 +40,20 @@
         <figcaption class="list_title">
           Redes Sociales
         </figcaption>
-        <ul class="contact_list">
-          <li>
+        <ul class="contact-list">
+          <li class="contact_list_element">
             <a class="footer_link" href="https://www.instagram.com/caelum.acc/" target="tab">
               Instagram <img class="instagram_logo"
                 src="{{ url_for('static', filename= 'img/instagram_logo_black.png')}}">
             </a>
           </li>
-          <li>
-            <a class="footer_link" href="https://twitter.com/cossipaula231" target="tab">
-              Twitter
-              <img class='twitter_logo' src="{{ url_for('static', filename= '/img/twitter_logo_black.png')}}">
+          <li class="contact_list_element">
+            <a class="footer_link" href="tel:+5493454931611">
+              WhatsApp
+              <img class='whatsapp_logo' src="{{ url_for('static', filename= '/img/whatsapp_logo_black.png')}}">
             </a>
           </li>
-          <li>
+          <li class="contact_list_element"> 
             <a class="footer_link" href="https://www.facebook.com/Caelum-Accesorios-101463584918167" target="tab">
               Facebook <img class="facebook_logo" src="{{ url_for('static', filename= 'img/facebook_logo_black.png')}}">
             </a>
@@ -69,10 +68,4 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
 </html>
-
-
-
-
-

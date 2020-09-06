@@ -13,29 +13,19 @@ body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
-
-.facebook_logo{
-    width: 25px;
-    height: 25px;
-}
-
-.twitter_logo{  
+.facebook_logo, .instagram_logo{
     width: 30px;
     height: 30px;
 }
 
-.instagram_logo{
-    width: 25px;
-    height: 25px;
+.whatsapp_logo{  
+    width: 30px;
+    height: 30px;
 }
 
 .display{
     font-family: "Open Sans", sans-serif;
 } 
-
-.contact_list{
-    list-style: none;
-}
 
 .list_title{
     font-weight: bold;
@@ -44,49 +34,65 @@ body{
     padding-left: 10px;
 }
 
-.footer_link{
-    text-decoration-style: none;
-    color: inherit;
-}
-
 .content{
     padding-left: 40px;
     padding-right: 40px;
     min-height: 100%;
 }
-
 .card-row{
     padding-top: 30px;
     padding-bottom: 30px;
 }
 
+/* Contenido scrolleable en /about */
 .list-group{
     height:500px;
     overflow-y: scroll;
 }
-
-.scrollspy-content{
+.scrollspy{
     background: #fafafaf6;
-    padding-top: 10px;
+    padding-bottom: 10px;
     padding-left: 10px;
     padding-right: 10px;
 }
 
+/* Deslizable de productos en /home */
 .carousels{
     display: flex;
     position: relative;
 }
-
 #carousel1, #carousel2{
-    padding-left: 10px;
-    padding-right: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
     padding-bottom: 15px;
     width: 50%;
-
 }
-
 #carousel2{
     float:right;
     position: absolute;
-    right: 10px;
+    right: 0px;
+}
+.carousel-image{
+    height: 500px;
+}
+
+/* Clase de la division en /home para contacto */
+.contact_div{
+    padding:10px;
+}
+.contact_buttons{
+    width:200px;
+    height: 40px;
+    padding-right:30px;
+    padding-left: 30px;
+}
+
+/* Division scrolleable en /products */
+/* Clase de visualización de products en /products*/
+.media{
+    padding-top:25px;
+}
+.media-item{
+    height: 90px;
+    width: 90px;
 }

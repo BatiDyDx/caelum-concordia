@@ -23,12 +23,12 @@ def about():
 @app.route('/product')
 def product():
     cur = mysql.connection.cursor()
-    cur.execute('SELECT * FROM products ORDER BY product_id DESC')
+    cur.execute('SELECT * FROM products ORDER BY name ASC')
     data = cur.fetchall()
-    # cur = mysql.connection.cursor()
-    # cur.execute('SELECT * FROM products ORDER BY name')
-    # data2 = cur.fetchall()
-    return render_template('productos.html', products = data)
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT name, COUNT(product_id) FROM products GROUP BY name ORDER BY name')
+    data2 = cur.fetchall()
+    return render_template('productos.html', products = data, categories = data2)
 
 @app.route('/icon.ico')
 def favicon():

@@ -3,27 +3,40 @@
 {% block content %}
 <ul class="list-group" style="height:700px;">
     <nav id="navbar-about" class="navbar navbar-light bg-light">
-        <a class="navbar-brand mb-01" href style="font-family: Arial, Helvetica, sans-serif;">Nuestros productos</a>
+        <a class="navbar-brand mb-01" href=#>Nuestros productos</a>
         <ul class="nav nav-pills">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle btn-primary" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                     aria-expanded="false">Articulos</a>
                 <div class="dropdown-menu dropdown-menu-right">
-                        {% for product in products %}
-                            <a class="dropdown-item" href="#{{product.0}}">{{ product.1 }}</a>
-                            <div role="separator" class="dropdown-divider"></div>
-                        {% endfor %}
+                    {% for category in categories %}
+                        <a class="dropdown-item" href="#{{category.0}}" style="background: inherit; color: inherit">{{ category.0 }}</a>
+                        <div role="separator" class="dropdown-divider"></div>
+                    {% endfor %}
                 </div>
             </li>
         </ul>
     </nav>
     <div class= "scrollspy" data-spy="scroll" data-target="#navbar-about" data-offset="0">
-        {% for product in products %}
-        <div class="media pt-3" id="{{ product.0 }}">
-            <img src="{{ product.3 }}" class="media-item mr-3" alt="...">
-            <div class="media-body">
-            <p class="mt-0">{{ product.1 }}</p>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+        {% for category in categories %}
+        <div class="card-row card-row-products" id="{{category.0}}">
+            <div class="card">
+                <div class="card-header">
+                {{ category.0 }}
+                </div>
+                <div class="media-body p-3">
+                    {% for product in products %}
+                        {% if product.1 == category.0 %}
+                            <div class="media pt-3">
+                                <img src="{{ product.3 }}" class="media-item mr-3" alt="...">
+                                <div class="media-body">
+                                <p class="mt-0">{{ product.1 }}</p>
+                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
         {% endfor %}

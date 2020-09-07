@@ -3,13 +3,13 @@
 {% block content%}
 <h1>Home</h1>
 
-<div style="background:#7FFFD4 !important; height: 320px;" class="jumbotron">
+<div class="jumbotron" style="background:#7FFFD4 !important;">
     <h1 class="display">Bienvenidos a Caelum</h1>
-    <p class="lead">Bienvenidos, Caelum es un espacio donde pueden encontrar accesorios de acero blanco y plata.
+    <p class="lead">Bienvenidos, Caelum es un espacio donde podes encontrar accesorios de acero blanco y plata.
     </p>
     <hr class="my-4">
-    <p>Esperamos que lo disfruten tanto como nosotros y nos acompañen durante este trayecto.</p>
-    <a class="btn btn-primary btn-lg" href="/about" role="button">Sobre nosotros</a>
+    <p>Esperamos que lo disfrutes tanto como nosotros y nos acompañes durante este trayecto.</p>
+    <a class="btn btn-primary btn-lg button-mobile-about" href="/about" role="button">Sobre nosotros</a>
 </div>
 
 <div class="card-row">
@@ -18,7 +18,7 @@
         <div class="card-body">
             <h5 class="card-title">Contacta con nosotros</h5>
             <p class="card-text">No dudes en consultarnos por cualquier pregunta que tengas</p>
-            <span>
+            <span class="contact-span">
                 <a class="contact_buttons" href="https://www.facebook.com/Caelum-Accesorios-101463584918167"
                     target="tab">
                     <img class="facebook_logo" src="{{ url_for('static', filename='img/facebook_logo_blue.png') }}">
@@ -27,8 +27,7 @@
                     <img class="instagram_logo " src="{{ url_for('static', filename= 'img/instagram_logo.png') }}">
                 </a>
                 <a class="contact_buttons" href="tel:+5493454931611">
-                    <img class="whatsapp_logo" style="width:40px; height:40px;"
-                        src="{{ url_for('static', filename= 'img/whatsapp_logo.png') }}">
+                    <img class="whatsapp_logo" src="{{ url_for('static', filename= 'img/whatsapp_logo.png') }}">
                 </a>
             </span>
         </div>
@@ -40,8 +39,8 @@
         <h5 class="card-header">Nuestros productos</h5>
         <div class="card-body">
             <h5 class="card-title">Productos destacados</h5>
-            <p class="card-text">Desde anillos, pulseras, collares y aros de plata y acero blanco</p>
-            <a href="/product" class="btn btn-primary">Ver Productos Disponibles</a>
+            <p class="card-text">Anillos, pulseras, collares y aros de plata y acero blanco</p>
+            <a href="/product" class="btn btn-primary button-mobile-products">Ver Productos Disponibles</a>
         </div>
         <div>
             <span class='carousels'>
@@ -87,7 +86,7 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <a href="/product#{{ products.3.0 }}">
-                                <img src="{{ products.3.3 }}" class="d-block w-100 carousel-image" alt="...">
+                                <img src="{{ products.3.3 }}" class="d-block w-100 carousel-image" alt="{{products}}">
                             </a>
                         </div>
                         <div class="carousel-item">

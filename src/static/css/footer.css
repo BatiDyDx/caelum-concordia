@@ -23,10 +23,10 @@ footer{
     color: inherit;
 }
 
-.contact_list{
+.contact-list{
     list-style: none;
 }
 
-.contact_list_element{
+.contact-list-element{
     padding-bottom: 5px;
 }

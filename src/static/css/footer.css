@@ -11,6 +11,7 @@ footer{
     position: absolute;
     background-color: lightcoral; /* Match the color of the body background */
     width: 100%;
+    display:inline-block;
 }
 
 .footer-figure-1{
@@ -29,4 +30,12 @@ footer{
 
 .contact-list-element{
     padding-bottom: 5px;
+}
+
+.input-group{
+    width:320px;
+    min-width:100px
+}
+::placeholder{
+    font-size: 13px;
 }

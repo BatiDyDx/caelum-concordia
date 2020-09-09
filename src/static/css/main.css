@@ -8,6 +8,9 @@ body{
     position: relative;
 }
 
+.flash_message{
+    
+}
 .navbar-brand{
     font-size: 35px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -34,7 +37,11 @@ body{
     padding-left: 10px;
 }
 .jumbotron{
-    height:320px;
+    height:335px;
+    background-color:#7FFFD4 !important;
+}
+.button-jumbotron{
+    margin-top:10px;
 }
 .content{
     padding-left: 40px;
@@ -52,7 +59,7 @@ body{
 
 /* Contenido scrolleable en /about */
 .list-group{
-    height:500px;
+    height:600px;
     overflow-y: scroll;
 }
 .scrollspy{
@@ -103,10 +110,23 @@ body{
     height: 90px;
     width: 90px;
 }
+
 /* Constraints para dispositivos móviles*/
+
+@media only screen and (orientation: portrait), screen and (max-width:800px){
+    .jumbotron{
+        height: 360px;
+    }
+    .list-group{
+        height: 900px;
+    }
+
+}
+
 @media only screen and (max-width: 600px){
     .jumbotron{
         height:460px;
+        text-align: center;
     }
     .contact-span{
         display:flex;
@@ -144,7 +164,7 @@ body{
     .list-group{
         height:725px;
     }
-    .button-mobile-about{
+    .button-jumbotron{
         margin-inline: 45px;
     }
     .button-mobile-products{
@@ -152,8 +172,15 @@ body{
     }
 }
 
-@media only screen and (max-height: 740px){
+/* Sinceramente ya no se que estoy haciendo*/
+@media only screen and (max-height: 740px), screen and (max-width: 430px){
     .list-group{
         height:600px;
+    }
+}
+
+@media only screen and (max-width: 360px){
+    .jumbotron{
+        height:485px;
     }
 }

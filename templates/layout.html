@@ -72,16 +72,11 @@
           </li>
         </ul>
       </figure>
-      <form class="input-group mb-3" action="/add_suscriber" method="POST">
-          <input type="email" name="email" class="form-control" placeholder="Inserte su correo electronico" aria-label="Inserte su correo electronico" aria-describedby="button-addon">
+      <form class="input-group mb-3" style="display:block;" action="/add_suscriber" method="POST">
+          <input type="email" name="email" class="form-control email-input" placeholder="Inserte su correo electronico" aria-label="Inserte su correo electronico" aria-describedby="button-addon" required>
           <div class="input-group-append">
             <button class="btn btn-info" type="submit" id="submit-button">Suscribirse</button>
-          </div>
-      </form>
-      <form class="input-group mb-3" action="/delete_suscriber" method="POST">
-          <input type="email" name="email" class="form-control" placeholder="Inserte su correo electronico" aria-label="Inserte su correo electronico" aria-describedby="button-addon">
-          <div class="input-group-append">
-            <button class="btn btn-info" type="submit" id="submit-button">Desuscribirse</button>
+            <a href="/delete_page" class="btn btn-danger">Desuscribirse</a>
           </div>
       </form>
     </div>

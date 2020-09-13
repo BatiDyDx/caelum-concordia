@@ -3,11 +3,18 @@ from flask import Flask, render_template, send_from_directory, request, redirect
 from flask_mysqldb import MySQL
 
 app = Flask(__name__)
-app.config['MYSQL_HOST'] = 'localhost' #sql10.freemysqlhosting.net , mysql-12563-0.cloudclusters.net
-app.config['MYSQL_USER'] = 'root' #sql10364048 , Bati
-app.config['MYSQL_PASSWORD'] = '' #RYuAGkygdA , Bautista01
-app.config['MYSQL_DB'] = 'Caelum' #sql10364048 , Caelum
+app.config['MYSQL_HOST'] = 'd1kb8x1fu8rhcnej.cbetxkdyhwsb.us-east-1.rds.amazonaws.com' #d1kb8x1fu8rhcnej.cbetxkdyhwsb.us-east-1.rds.amazonaws.com
+app.config['MYSQL_USER'] = 'djzh5kqhwdh4f6ue' #djzh5kqhwdh4f6ue
+app.config['MYSQL_PASSWORD'] = 'lh2ehc9akqk8j2do' #lh2ehc9akqk8j2do
+app.config['MYSQL_DB'] = 'oneoqwg7xmndwlc2' #oneoqwg7xmndwlc2
 mysql = MySQL(app)
+
+#Link for alternate free database, although not so trustable
+#http://www.phpmyadmin.co/import.php?db=sql10364048&table=users&sql_query=SELECT+%2A+FROM+%60users%60&show_query=1
+#HOST: sql10.freemysqlhosting.net
+#USER: sql10364048
+#PASSWORD: RYuAGkygdA
+#DATABASE: sql10364048
 
 app.secret_key = 'mysecretkey'
 
@@ -37,6 +44,10 @@ def delete_suscriber():
         mysql.connection.commit()
         return redirect(url_for('home'))
 
+@app.route('/delete_page')
+def delete_page():
+    return render_template('delete.html')
+
 @app.route('/about')
 def about():
     return render_template('about.html')
@@ -44,12 +55,19 @@ def about():
 @app.route('/product')
 def product():
     cur = mysql.connection.cursor()
-    cur.execute('SELECT * FROM products ORDER BY name ASC')
+    cur.execute('SELECT * FROM products ORDER BY category ASC')
     data = cur.fetchall()
     cur = mysql.connection.cursor()
-    cur.execute('SELECT name, COUNT(product_id) FROM products GROUP BY name ORDER BY name')
+    cur.execute('SELECT category, COUNT(product_id) FROM products GROUP BY category ORDER BY category')
     data2 = cur.fetchall()
-    return render_template('productos.html', products = data, categories = data2)
+    return render_template('products.html', products = data, categories = data2)
+
+@app.route('/product/<string:id>')
+def product_view(id):
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM products WHERE product_id = '{}'".format(id))
+    data = cur.fetchall()
+    return render_template('product_view.html', product = data)
 
 @app.route('/icon.ico')
 def favicon():

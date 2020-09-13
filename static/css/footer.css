@@ -11,7 +11,7 @@ footer{
     position: absolute;
     background-color: lightcoral; /* Match the color of the body background */
     width: 100%;
-    display:inline-block;
+    display:flex;
 }
 
 .footer-figure-1{
@@ -34,8 +34,34 @@ footer{
 
 .input-group{
     width:320px;
-    min-width:100px
+    min-width:100px;
+    padding: 15px 0 0 15px;
+    display: "block";
 }
+input.email-input{
+    width:100% !important
+} 
 ::placeholder{
     font-size: 13px;
+}
+.input-group-append{
+    width:100%;
+}
+
+footer form .btn{
+    width:50%
+}
+
+button.btn, input.form-control{
+    border-radius: .25rem !important;
+}
+
+@media only screen and (max-width:550px){
+    .footer_div{
+        display: grid;
+        justify-content: center;
+    }
+    .input-group{
+        padding: initial;
+    }
 }

@@ -1,0 +1,15 @@
+{% extends 'layout.html'%}
+{% block content %}
+<a class="btn btn-primary" href="/product#{{product.0.0}}">De regreso al catálogo</a>
+<article class="container p-4 product_view">
+    <div class="article-head">
+        <img src="{{product.0.3}}">
+    </div>
+    <hr class="my-4">
+    <div class="article-body">
+        <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates quod praesentium, non minima temporibus eius at qui iste unde ipsa rerum dignissimos enim in blanditiis, ratione explicabo harum. Labore, assumenda?</p>
+    </div>
+
+</article>
+
+{% endblock %}

@@ -98,7 +98,6 @@ body{
     padding-left: 30px;
 }
 
-/* Division scrolleable en /products */
 /* Clase de visualización de products en /products*/
 .media{
     padding-top:25px;
@@ -108,17 +107,39 @@ body{
     width: 90px;
 }
 
-/* Constraints para dispositivos móviles*/
-
-@media only screen and (orientation: portrait), screen and (max-width:800px){
-    .jumbotron{
-        height: 360px;
-    }
-    .list-group{
-        height: 900px;
-    }
-
+.card-row-products a.media{
+    color:inherit;
 }
+
+/* Article en product_view */
+div.article-head{
+    display:flex;
+    justify-content: center;
+}
+
+div.article-head img{
+    height: 500px;
+    width: 500px;
+}
+
+/**/
+div.unsuscribe-div{
+    width:50%;
+    background:rgba(0, 255, 255, 0.562);
+    border-radius:.25rem;
+}
+
+div.unsuscribe-div form.input-group{
+    width:70%;
+    margin-inline: auto;
+    padding:initial
+}
+
+.unsuscribe-div .btn{
+    width: 100%;
+}
+
+/* Constraints para dispositivos móviles*/
 
 @media only screen and (max-width: 600px){
     .jumbotron{
@@ -169,15 +190,3 @@ body{
     }
 }
 
-/* Sinceramente ya no se que estoy haciendo*/
-@media only screen and (max-height: 740px), screen and (max-width: 430px){
-    .list-group{
-        height:600px;
-    }
-}
-
-@media only screen and (max-width: 360px){
-    .jumbotron{
-        height:485px;
-    }
-}

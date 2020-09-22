@@ -3,6 +3,9 @@ html, body{
     background: #FFCC99;
     color: #000000
 }
+a:link{
+    text-decoration: none;
+}
 
 body{
     position: relative;
@@ -27,12 +30,13 @@ body{
     font-family: "Open Sans", sans-serif;
 } 
 
-.list_title{
-    font-weight: bold;
-    font-size: 20px;
-    font-family: sans-serif;
-    padding-left: 10px;
+div.alert p.flash_message{
+    margin-top: 1rem;
 }
+div.alert button.close{
+    margin-top: 1rem;
+}
+
 .jumbotron{
     height:335px;
     background-color:#7FFFD4 !important;
@@ -66,6 +70,16 @@ body{
     padding-right: 10px;
 }
 
+img.founders_img{
+    width:125px; 
+    height:125px;
+    margin-top: 15px;
+}
+a.founders_name{
+    font-style: italic; 
+    color: inherit; 
+    text-decoration: underline;
+}
 /* Deslizable de productos en /home */
 .carousels{
     display: flex;
@@ -125,6 +139,7 @@ div.article-head img{
 /**/
 div.unsuscribe-div{
     width:50%;
+    height:350px;
     background:rgba(0, 255, 255, 0.562);
     border-radius:.25rem;
 }
@@ -132,7 +147,8 @@ div.unsuscribe-div{
 div.unsuscribe-div form.input-group{
     width:70%;
     margin-inline: auto;
-    padding:initial
+    padding-top: 15px;
+
 }
 
 .unsuscribe-div .btn{
@@ -180,13 +196,21 @@ div.unsuscribe-div form.input-group{
         font-size:x-large;
     }
     .list-group{
-        height:725px;
+        height:600px;
     }
     .button-jumbotron{
         margin-inline: 45px;
     }
     .button-mobile-products{
         margin-inline: 20px;
+    }
+    div.article-head img{
+        height: 300px;
+        width: 300px;
+    }
+    div.unsuscribe-div{
+        width:unset;
+        height:370px;
     }
 }
 

@@ -3,18 +3,12 @@ from flask import Flask, render_template, send_from_directory, request, redirect
 from flask_mysqldb import MySQL
 
 app = Flask(__name__)
-app.config['MYSQL_HOST'] = 'd1kb8x1fu8rhcnej.cbetxkdyhwsb.us-east-1.rds.amazonaws.com' #d1kb8x1fu8rhcnej.cbetxkdyhwsb.us-east-1.rds.amazonaws.com
-app.config['MYSQL_USER'] = 'djzh5kqhwdh4f6ue' #djzh5kqhwdh4f6ue
-app.config['MYSQL_PASSWORD'] = 'lh2ehc9akqk8j2do' #lh2ehc9akqk8j2do
-app.config['MYSQL_DB'] = 'oneoqwg7xmndwlc2' #oneoqwg7xmndwlc2
+app.config['MYSQL_HOST'] = 'd1kb8x1fu8rhcnej.cbetxkdyhwsb.us-east-1.rds.amazonaws.com'
+app.config['MYSQL_USER'] = 'djzh5kqhwdh4f6ue'
+app.config['MYSQL_PASSWORD'] = 'lh2ehc9akqk8j2do'
+app.config['MYSQL_DB'] = 'oneoqwg7xmndwlc2'
 mysql = MySQL(app)
 
-#Link for alternate free database, although not so trustable
-#http://www.phpmyadmin.co/import.php?db=sql10364048&table=users&sql_query=SELECT+%2A+FROM+%60users%60&show_query=1
-#HOST: sql10.freemysqlhosting.net
-#USER: sql10364048
-#PASSWORD: RYuAGkygdA
-#DATABASE: sql10364048
 
 app.secret_key = 'mysecretkey'
 
@@ -42,6 +36,7 @@ def delete_suscriber():
         cur = mysql.connection.cursor()
         cur.execute("DELETE FROM users WHERE user_email = '{0}'".format(email))
         mysql.connection.commit()
+        flash('Tu desuscripción se llevo a cabo con éxito. Esperamos que vuelvas pronto')
         return redirect(url_for('home'))
 
 @app.route('/delete_page')

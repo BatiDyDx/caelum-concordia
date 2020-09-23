@@ -1,24 +1,37 @@
 {% extends 'layout.html'%}
 
 {% block content %}
+<!-- Seccion scrolleable -->
 <ul class="list-group">
-    <nav id="navbar-about" class="navbar navbar-light bg-light">
-        <a class="navbar-brand mb-01" href style="font-family: Arial, Helvetica, sans-serif;">Acerca de Nosotros</a>
-    </nav>
-    <div class= "scrollspy" data-spy="scroll" data-target="#navbar-about" data-offset="0">
-        <h4>Quiénes somos</h4>
-        <p>
-            Caelum surgió como una idea propia. Cuando comenzamos con este proyecto nos pareció algo innovador para traer a la ciudad de Concordia. Nuestro objetivo es lograr que cada persona pueda sentirse especial con su accesorio de Caelum. Nos parece necesario el hecho de que todos puedan identificarse con algo, en este caso las joyas.
-        </p>
-        <h4>La inspiración detrás de Caelum</h4>
-        <p>
-            "El nombre Caelum significa “cielo” en latín, y está dedicado a todos mis seres queridos que ya no se encuentran presentes. Ellos fueron los que me inspiraron a empezar todo esto y son los que me motivan día a día a seguirlo."
-        </p>
-        <p><a class="founders_name" href="https://www.instagram.com/pau.cossi/?hl=en">Paula Cossi</a>-Fundadora de Caelum</p>
-        <h4>Por qué elegirnos</h4>
-        <p>
-            Nuestro principal interés es diferenciarnos del resto aportando no solo accesorios sino un sentido de pertenencia para los clientes, para que puedan identificarse con el nombre Caelum y todo lo que este conlleva tanto como nosotros lo hacemos.
-        </p>
-    </div>
+    <li>
+        <nav id="navbar-about" class="navbar navbar-light bg-light">
+            <a class="navbar-brand mb-01" href style="font-family: Arial, Helvetica, sans-serif;">Acerca de Nosotros</a>
+        </nav>
+    </li>
+    <li>
+        <div class="scrollspy" data-spy="scroll" data-target="#navbar-about" data-offset="0">
+            <h4>Quiénes somos</h4>
+            <p>
+                Caelum surgió como una idea propia. Cuando comenzamos con este proyecto nos pareció algo innovador para
+                traer a la ciudad de Concordia. Nuestro objetivo es lograr que cada persona pueda sentirse especial con
+                su accesorio de Caelum. Nos parece necesario el hecho de que todos puedan identificarse con algo bonito, en
+                este caso las joyas.
+            </p>
+            <h4>La inspiración detrás de Caelum</h4>
+            <p>
+                "El nombre Caelum significa “cielo” en latín, y está dedicado a todos mis seres queridos que ya no se
+                encuentran presentes. Ellos fueron los que me inspiraron a empezar todo esto y son los que me motivan
+                día a día a seguirlo."
+            </p>
+            <p><a class="founders_name" href="https://www.instagram.com/pau.cossi/?hl=en">Paula Cossi</a>-Fundadora de
+                Caelum</p>
+            <h4>Por qué elegirnos</h4>
+            <p>
+                Nuestro principal interés es diferenciarnos del resto aportando no solo accesorios sino un sentido de
+                pertenencia para los clientes, para que puedan identificarse con el nombre Caelum y todo lo que este
+                conlleva tanto como nosotros lo hacemos.
+            </p>
+        </div>
+    </li>
 </ul>
 {% endblock %}

@@ -1,16 +1,16 @@
 {% extends 'layout.html'%}
 {% block content %}
+<!-- Boton de regreso a la vista general -->
 <a class="btn btn-primary" href="/product#{{product.0.0}}">De regreso al catálogo</a>
+<!-- Vista previa de la imagen del producto y su descripcion -->
 <article class="container p-4 product_view">
     <div class="article-head">
-        <img src="{{product.0.3}}">
+        <img src="{{ product.0.3 }}" alt="{{ product.0.2 }}">
     </div>
     <hr class="my-4">
     <div class="article-body">
         <h4 class="product-category">Categoria: {{ product.0.1 }}</h4>
         <p class="product-description">{{ product.0.2 }}</p>
     </div>
-
 </article>
-
 {% endblock %}

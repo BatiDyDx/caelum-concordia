@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, send_from_directory, request, redirect, flash, url_for
 from flask_mysqldb import MySQL
 
+#Configuraciones de la base de datos
 app = Flask(__name__)
 app.config['MYSQL_HOST'] = 'd1kb8x1fu8rhcnej.cbetxkdyhwsb.us-east-1.rds.amazonaws.com'
 app.config['MYSQL_USER'] = 'uzjkks7j0ro99jby'
@@ -12,26 +13,33 @@ mysql = MySQL(app)
 secret_key = os.urandom(12).hex()
 app.config['SECRET_KEY'] = secret_key
 
+#Ruta principal
 @app.route('/')
 def home():
+    #Obtenemos informacion de los productos destacados
     cur = mysql.connection.cursor()
     cur.execute('SELECT * FROM products ORDER BY product_id DESC LIMIT 6')
     data = cur.fetchall()
     return render_template('home.html', products = data)
 
+#Ruta para agregar suscriptores
 @app.route('/add_suscriber', methods=['POST'])
 def add_suscriber():
     if request.method == 'POST':
+        #Ejecutamos la consulta para subir la direccion de correo
         email = request.form['email']
         cur = mysql.connection.cursor()
         cur.execute("INSERT INTO users (user_email) VALUES('{0}')".format(email))
         mysql.connection.commit()
+        #Devolvemos mensaje flash
         flash('Muchas gracias por suscribirte')
         return redirect(url_for('home'))
 
+#Ruta para eliminar suscriptores
 @app.route('/delete_suscriber', methods=['POST'])
 def delete_suscriber():
     if request.method == 'POST':
+        #Ejecutamos la consulta para eliminar la direccion que coincida con la del input del usuario
         email = request.form['email']
         cur = mysql.connection.cursor()
         cur.execute("DELETE FROM users WHERE user_email = '{0}'".format(email))
@@ -39,14 +47,17 @@ def delete_suscriber():
         flash('Tu desuscripción se llevo a cabo con éxito. Esperamos que vuelvas pronto')
         return redirect(url_for('home'))
 
+#Ruta de la pagina de desuscripcion
 @app.route('/delete_page')
 def delete_page():
     return render_template('delete.html')
 
+#Ruta de la pagina Acerca De
 @app.route('/about')
 def about():
     return render_template('about.html')
 
+#Ruta de la página de Productos
 @app.route('/product')
 def product():
     cur = mysql.connection.cursor()
@@ -57,6 +68,7 @@ def product():
     data2 = cur.fetchall()
     return render_template('products.html', products = data, categories = data2)
 
+#Ruta de la página de un Producto en especifico
 @app.route('/product/<string:id>')
 def product_view(id):
     cur = mysql.connection.cursor()
@@ -64,10 +76,12 @@ def product_view(id):
     data = cur.fetchall()
     return render_template('product_view.html', product = data)
 
+#Ruta del icono de la pagina
 @app.route('/icon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
     'icon.ico', mimetype= 'image/vnd.microsoft.icon')
 
+#Ejecución de la app
 if __name__ == '__main__':
     app.run(debug = True)

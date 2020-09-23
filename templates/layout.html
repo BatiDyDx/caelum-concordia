@@ -11,7 +11,9 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
 </head>
+
 <body>
+  <!-- Barra de navegación -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/">Caelum</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -26,28 +28,31 @@
       </div>
     </div>
   </nav>
-
+  <!-- Mensajes flash -->
   <div class='content pt-4'>
     {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        {% for message in messages%}
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <p class="flash_message">{{ message }}</p>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        {% endfor %}
-      {% endif %}
+    {% if messages %}
+    {% for message in messages%}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <p class="flash_message">{{ message }}</p>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+    {% endif %}
     {% endwith %}
+    <!-- Extendemos contenido para que uson los otros archivos html -->
     {% block content %}
 
     {%endblock%}
   </div>
-
+  <!-- Pie de pagina -->
   <footer>
+    <!-- Seccion superior del pie de pagina -->
     <div class="footer_div_top">
-      <figure class= "footer-figure-1">
+      <figure class="footer-figure-1">
+        <!-- Lista de redes sociales -->
         <figcaption class="list_title">
           Redes Sociales
         </figcaption>
@@ -64,28 +69,35 @@
               <img class='whatsapp_logo' src="{{ url_for('static', filename= '/img/whatsapp_logo_black.png')}}">
             </a>
           </li>
-          <li class="contact-list-element"> 
+          <li class="contact-list-element">
             <a class="footer_link" href="https://www.facebook.com/Caelum-Accesorios-101463584918167" target="tab">
               Facebook <img class="facebook_logo" src="{{ url_for('static', filename= 'img/facebook_logo_black.png')}}">
             </a>
           </li>
         </ul>
       </figure>
+      <!-- Formulario para suscribirse -->
       <form class="input-group mb-3" style="display:block;" action="/add_suscriber" method="POST">
-          <input type="email" name="email" class="form-control email-input" placeholder="Inserte su correo electronico" aria-label="Inserte su correo electronico" aria-describedby="button-addon" required>
-          <div class="input-group-append">
-            <button class="btn btn-info" type="submit" id="submit-button">Suscribirse</button>
-            <a href="/delete_page" class="btn btn-danger">Desuscribirse</a>
-          </div>
+        <input type="email" name="email" class="form-control email-input" placeholder="Inserte su correo electronico"
+          aria-label="Inserte su correo electronico" aria-describedby="button-addon" required>
+        <div class="input-group-append">
+          <button class="btn btn-info" type="submit" id="submit-button">Suscribirse</button>
+          <a href="/delete_page" class="btn btn-danger">Desuscribirse</a>
+        </div>
       </form>
     </div>
+    <!-- Seccion inferior del pie de pagina -->
     <div class="footer_div_bottom">
       <p>Caelum &copy;|<a class="bottom-link" href="https://github.com/BatiDyDx" target="tab">Powered by Bati</a></p>
     </div>
   </footer>
 </body>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+  integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+  integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
 </html>

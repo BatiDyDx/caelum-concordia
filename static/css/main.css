@@ -1,8 +1,10 @@
+/* Estilos del archivo entero de base */
 html, body{
     height: 100%;
     background: #FFCC99;
     color: #000000
 }
+
 a:link{
     text-decoration: none;
 }
@@ -11,54 +13,61 @@ body{
     position: relative;
 }
 
+/* Estilos de la barra de navegacion */
 .navbar-brand{
     font-size: 35px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-
 }
+
+/* Estilos de los logos de redes sociales */
 .facebook_logo, .instagram_logo{
     width: 30px;
     height: 30px;
 }
-
 .whatsapp_logo{  
     width: 30px;
     height: 30px;
 }
 
-.display{
-    font-family: "Open Sans", sans-serif;
-} 
-
+/* Mensajes flash */
 div.alert p.flash_message{
     margin-top: 1rem;
 }
 div.alert button.close{
     margin-top: 1rem;
 }
-
-.jumbotron{
-    height:335px;
-    background-color:#7FFFD4 !important;
-}
-.button-jumbotron{
-    margin-top:10px;
-}
+/* Contenido del mensaje flash */
 .content{
     padding-left: 40px;
     padding-right: 40px;
     min-height: 100%;
 }
+
+/* Jumbotron */
+.jumbotron{
+    height:335px;
+    background-color:#7FFFD4 !important;
+}
+/* Titulo del jumbotron */
+.display{
+    font-family: "Open Sans", sans-serif;
+} 
+.button-jumbotron{
+    margin-top:10px;
+}
+
+/* Tarjetas en Home */
 .card-row{
     padding-top: 30px;
     padding-bottom: 30px;
 }
 
+/* Tarjeta de categorias de productos en Productos */
 .card-row-products{
     padding: 10px 0px 10px
 }
 
-/* Contenido scrolleable en /about */
+/* Contenido scrolleable en Acerca De */
 .list-group{
     height:600px;
     overflow-y: scroll;
@@ -70,16 +79,18 @@ div.alert button.close{
     padding-right: 10px;
 }
 
+/* Estilo para el link al perfil del fundador */
 a.founders_name{
     font-style: italic; 
     color: inherit; 
     text-decoration: underline;
 }
-/* Deslizable de productos en /home */
+/* Deslizable de productos en Home */
 .carousels{
     display: flex;
     position: relative;
 }
+/* Estilos de los carruseles */
 #carousel1, #carousel2{
     padding-left: 15px;
     padding-right: 15px;
@@ -91,15 +102,12 @@ a.founders_name{
     position: absolute;
     right: 0px;
 }
+/* Imagen del producto */
 .carousel-image{
     height: 500px;
 }
 
-
-/* Clase de la division en /home para contacto */
-.contact_div{
-    padding:10px;
-}
+/* Clase de la division de contacto en Home */
 .contact_buttons{
     width:200px;
     height: 40px;
@@ -107,15 +115,16 @@ a.founders_name{
     padding-left: 30px;
 }
 
-/* Clase de visualización de products en /products*/
+/* Clase de visualización de productos en Productos */
 .media{
     padding-top:25px;
 }
+/* Imagen de los productos */
 .media-item{
     height: 90px;
     width: 90px;
 }
-
+/* Link a los productos */
 .card-row-products a.media{
     color:inherit;
 }
@@ -125,50 +134,62 @@ div.article-head{
     display:flex;
     justify-content: center;
 }
-
+/* Imagen del producto */
 div.article-head img{
     height: 500px;
     width: 500px;
     border-radius: .25rem;
 }
+/* Categoria */
 h4.product-category{
     text-align: center;
 }
+/* Descripcion */
 p.product-description{
     text-align:center;
 }
 
-/**/
+/* Division en Desuscribirse */
 div.unsuscribe-div{
     width:50%;
     height:350px;
     background:rgba(0, 255, 255, 0.562);
     border-radius:.25rem;
 }
-
+/* Formulario en Desuscribirse */
 div.unsuscribe-div form.input-group{
     width:70%;
     margin-inline: auto;
     padding-top: 15px;
-
 }
-
 .unsuscribe-div .btn{
     width: 100%;
 }
 
 /* Constraints para dispositivos móviles*/
-
 @media only screen and (max-width: 600px){
+    /* Barra de navegacion y titulos en listas de Productos y Acerca De */
+    .navbar-brand{
+        font-size:x-large;
+    }
+
+    /* Division Jumbotron */
     .jumbotron{
         height:460px;
         text-align: center;
     }
+    .button-jumbotron{
+        margin-inline: 45px;
+    }
+
+    /* Span con contactos en la tarjeta de contactos en Home*/
     .contact-span{
         display:flex;
         justify-content: space-around;
         text-align: center;
     }
+
+    /* Carruseles en Home */
     .carousels{
         display: flex;
         position: relative;
@@ -176,6 +197,7 @@ div.unsuscribe-div form.input-group{
         padding: 0px 10px 0px 10px;
         justify-content: space-around;
     }
+    /* Indicador de slides en los carruseles */
     .carousel-indicators{
         display: none;
         position: absolute;
@@ -190,30 +212,47 @@ div.unsuscribe-div form.input-group{
     #carousel2{
         position: unset;
     }
+    /* Imagenes de los carruseles */
     .carousel-image{
         width: 100px;
         height: 100px;
     }
-    .navbar-brand{
-        font-family: Arial, Helvetica, sans-serif;
-        font-size:x-large;
-    }
+
+    /* Lista con navegacion y contenido en Productos y Acerca De */
     .list-group{
         height:600px;
     }
-    .button-jumbotron{
-        margin-inline: 45px;
+    /* Boton desplegable en Productos */
+    nav#navbar-products ul{
+        position: relative;
+        right: -150px;
     }
+
+    /* Boton de redireccion a productos en tarjeta en Home */
     .button-mobile-products{
         margin-inline: 20px;
     }
+
+    /* Imagen de la vista previa del producto */
     div.article-head img{
         height: 300px;
         width: 300px;
     }
+
+    /* Division para desuscripcion en Desuscribirse */
     div.unsuscribe-div{
         width:unset;
         height:370px;
+        position: relative;
+    }
+    div.unsuscribe-div p.unsuscribe-message{
+        text-align: center;
+    }
+    div.unsuscribe-div form.input-group{
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        padding-top: 15px;
     }
 }
 

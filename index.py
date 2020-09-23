@@ -4,13 +4,13 @@ from flask_mysqldb import MySQL
 
 app = Flask(__name__)
 app.config['MYSQL_HOST'] = 'd1kb8x1fu8rhcnej.cbetxkdyhwsb.us-east-1.rds.amazonaws.com'
-app.config['MYSQL_USER'] = 'djzh5kqhwdh4f6ue'
-app.config['MYSQL_PASSWORD'] = 'lh2ehc9akqk8j2do'
-app.config['MYSQL_DB'] = 'oneoqwg7xmndwlc2'
+app.config['MYSQL_USER'] = 'uzjkks7j0ro99jby'
+app.config['MYSQL_PASSWORD'] = 'wyzmp61glnwaxewy'
+app.config['MYSQL_DB'] = 'ma4j48xxoy3udlvp'
 mysql = MySQL(app)
 
-
-app.secret_key = 'mysecretkey'
+secret_key = os.urandom(12).hex()
+app.config['SECRET_KEY'] = secret_key
 
 @app.route('/')
 def home():

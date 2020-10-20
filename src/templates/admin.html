@@ -1,0 +1,97 @@
+{% extends 'layout.html' %}
+
+{% block title %} Administración {% endblock %}
+<!-- Agregar estilo  -->
+{% block styles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css')}}">{% endblock %}
+
+{% block content %}
+<!-- Inicio de sesion del usuario -->
+<h2>Iniciaste sesión como Administrador: {{g.user.username}}</h2>
+<!-- Tabla de productos -->
+<h1>Productos</h1>
+<div class="admin-div">
+    <table class="table-products">
+        <!-- Cabezera de la tabla -->
+        <tr class="head-row">
+            <!-- ID del producto -->
+            <th class="th-admin" id="ID">ID del producto</th>
+            <!-- Categoria del producto -->
+            <th class="th-admin" id="Category">Categoria</th>
+            <!-- Descripcion del prodcuto -->
+            <th class="th-admin" id="Description">Descripcion</th>
+            <!-- Imagen del producto -->
+            <th class="th-admin" id="Image">Imagen</th>
+            <!-- Stock del producto -->
+            <th class="th-admin" id="Stock">Stock</th>
+            <!-- Boton para editar el producto -->
+            <th class="th-admin" id="Edit">Editar</th>
+        </tr>
+        <!-- Cuerpo de la tabla -->
+        {% for product in products %}
+            <tr class="body-row" id="{{product.0}}">
+                <td class="td-admin" id="ID"><a href="/products#{{ product.0 }}">{{ product.0 }}</a></td>
+                <td class="td-admin" id="Category"><a href="/products#{{ product.1 }}">{{ product.1 }}</a></td>
+                <td class="td-admin" id="Description">{{ product.2 }}</td>
+                <td class="td-admin" id="Image"><img src="{{ product.3 }}"></td>
+                {% if product.4 == 1 %}
+                <td class="td-admin" id="Stock">En Stock</td>
+                {% elif product.4 == 0 %}
+                <td class="td-admin" id="Stock">Fuera de Stock</td>
+                {% endif %}
+                <td><a id="{{ product.0 }}" class="btn btn-info" href="/admin/edit_product/{{product.0}}">Editar</a></td>
+            </tr>
+        {% endfor %}
+        <!-- Leyenda de la tabla -->
+        <caption class="table-caption">
+            <div>
+                <!-- Boton de enlace para ir a productos -->
+                <a class="btn btn-primary caption-element" href="/products">Ver los productos</a>
+                <!-- Boton de enlace para agregar productos -->
+                <a class="btn btn-success caption-element" href="/admin/add_product">Agregar productos</a>
+                <!-- Formulario para eliminar producto -->
+                <form class="caption-element" action="/admin/delete_product" method = 'POST'>
+                    <!-- Numero de ID del producto a eliminar -->
+                    <input class="form-control" type="number" name="id" placeholder="ID del producto a eliminar" required>
+                    <!-- Palabra CONFIRMAR para confirmar solicitiud -->
+                    <input class="form-control" type="text" name="confirm" placeholder="Ingrese la palabra CONFIRMAR" required>
+                    <!-- Boton para guardar cambios y eliminar el producto -->
+                    <button class="btn btn-danger" type="submit">Eliminar un producto</a>
+                </form>
+            </div>
+        </caption>
+    </table>
+</div>
+<!-- Tabla de usuarios -->
+<h1>Usuarios</h1>
+<div class="admin-div">
+    <table class="table-users">
+        <!-- Cabezera de la tabla -->
+        <tr class="head-row">
+            <!-- ID del usuario -->
+            <th id="UserID">ID del usuario</th>
+            <!-- Email del usuario -->
+            <th id="Email">Correo del usuario</th>
+            <!-- Boton para contactar al usuario -->
+            <th id="UserContact">Contacto</th>
+        </tr>
+        <!-- Cuerpo de la tabla -->
+        {% for user in users %}
+            <tr class="body-row">
+                <td id="UserID">{{ user.0 }}</td>
+                <td id="Email">{{ user.1 }}</td>
+                <td id="UserContact">
+                    <a href="mailto:{{ user.1 }}"><img src="{{ url_for('static', filename='img/mail_logo.png') }}"></a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+<!-- Botón flotante para dirigir al comienzo de la pagina -->
+<div class="floating-button">
+    <button id="scroll_button" class="scroll_top_button"><img src="{{ url_for('static', filename='img/arrow.png') }}"></button>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='javascript/scroll_top.js')}}"></script>
+{% endblock %}

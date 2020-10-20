@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+
+{% block title %} Administración de Productos {% endblock %}
+{% block styles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css')}}">{% endblock %}
+
+
+{% block content %}
+<!-- División del contenedor para el formulario -->
+<div class="container pt-3 edit-page-div">
+{% if request.path == url_for('add_product') %}
+    <!-- Formulario para agregar productos -->
+    <form class="edit_page_form" action="/admin/add_product" method="POST">
+        <div class="row-1">
+            <!-- Fila 1 con input para categoria y selector para estado del stock -->
+            <div class="category-div">
+                <label for="Categoria">Categoria del producto</label>
+                <input id="Categoria" name="Categoria" class="form-control" placeholder="Categoria del producto" required>
+            </div>
+            <select id="Stock" name="Stock">
+                <option value="Stock">En Stock</option>
+                <option value="OutOfStock">Fuera de Stock</option>
+            </select>
+        </div>
+        <div class="row-2">
+            <!-- Fila 2 con input para descripción del producto -->
+            <label for="Descripcion">Descripcion del producto</label>
+            <input id="Descripcion" name="Descripcion" class="form-control" placeholder="Descripcion del producto" required>
+        </div>
+        <div class="row-3">
+            <!-- Fila 3 con textarea para ingresar url de la imagen del producto -->
+            <label for="URL">URL de la imagen del producto</label>
+            <textarea id="URL" name="URL" class="form-control" rows="3" placeholder="URL de la imagen del producto" required></textarea>
+        </div>
+        <div class="row-4">
+            <!-- Fila 4 con boton para refrescar visualización de la imagen cuyo url se haya insertado en la fila 3 -->
+            <img id="URL_img" src="">
+            <img id="refresh_button" name="reload_arrow" src="{{ url_for('static', filename='img/reload_arrow.png')}}">
+        </div>
+        <div class="row-5">
+            <!-- Botones para guardar cambios y cancelar -->
+            <button type="submit" class="btn btn-primary">Agregar producto</button>
+            <a href="/admin" class="btn btn-danger">Cancelar</a>
+        </div>
+    </form>
+{% elif request.path == url_for('edit_product', id = product.0) %}
+    <h4>ID del producto: {{product.0}}</h4>
+    <form class="edit_page_form" action="/admin/edit_product/{{ product.0 }}" method="POST">
+        <div class="row-1">
+            <!-- Fila 1 con input para categoria y selector para estado del stock -->
+            <div class="category-div">
+                <label for="Categoria">Categoria del producto</label>
+                <input id="Categoria" name="Categoria" value="{{ product.1 }}" class="form-control" placeholder="Categoria del producto">
+            </div>
+            <!-- Si el estado del producto es en stock, la opcion preseleccionada es en stock,
+            sino, la opción preseleccionada es fuera de stock -->
+            {% if product.4 == 1 %}
+            <select name="Stock" id="Stock">
+                <option value="Stock" selected="selected">En Stock</option>
+                <option value="OutOfStock">Fuera de Stock</option>
+            </select>
+            {% elif product.4 == 0 %}
+            <select name="Stock" id="Stock">
+                <option value="Stock">En Stock</option>
+                <option value="OutOfStock" selected="selected">Fuera de Stock</option>
+            </select>
+            {% endif %}
+        </div>
+        <div class="row-2">
+            <!-- Fila 2 con input para descripción del producto -->
+            <label for="Descripcion">Descripcion del producto</label>
+            <input id="Descripcion" name="Descripcion" value="{{ product.2 }}" class="form-control" placeholder="Descripcion del producto">
+        </div>
+        <div class="row-3">
+            <!-- Fila 3 con textarea para ingresar url de la imagen del producto -->
+            <label for="URL">URL de la imagen del producto</label>
+            <textarea id="URL" name="URL" class="form-control" rows="3" placeholder="URL de la imagen del producto">{{ product.3 }}</textarea>
+        </div>
+        <div class="row-4">
+            <!-- Fila 4 con boton para refrescar visualización de la imagen cuyo url se haya insertado en la fila 3 -->
+            <img id="URL_img" src="{{ product.3 }}">
+            <img id="refresh_button" name="reload_arrow" src="{{ url_for('static', filename='img/reload_arrow.png')}}">
+        </div>
+        <div class="row-5">
+            <!-- Botones para guardar cambios y cancelar -->
+            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            <a href="/admin" class="btn btn-danger">Cancelar</a>
+        </div>
+    </form>
+{% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='javascript/refresh_img.js')}}"></script>
+{% endblock %}

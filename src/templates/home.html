@@ -1,5 +1,7 @@
 {%extends 'layout.html'%}
 
+{% block title %} Home {% endblock %}
+
 {% block content %}
 <h1>Home</h1>
 
@@ -26,10 +28,10 @@
                     <img class="facebook_logo" src="{{ url_for('static', filename='img/facebook_logo_blue.png') }}">
                 </a>
                 <a class="contact_buttons" href="https://www.instagram.com/caelum.acc/" target="tab">
-                    <img class="instagram_logo " src="{{ url_for('static', filename= 'img/instagram_logo.png') }}">
+                    <img class="instagram_logo " src="{{ url_for('static', filename='img/instagram_logo.png') }}">
                 </a>
-                <a class="contact_buttons" href="tel:+5493454931611">
-                    <img class="whatsapp_logo" src="{{ url_for('static', filename= 'img/whatsapp_logo.png') }}">
+                <a class="contact_buttons" href="tel:+5493454931611" style="display: none;">
+                    <img class="whatsapp_logo" src="{{ url_for('static', filename='img/whatsapp_logo.png') }}">
                 </a>
             </span>
         </div>
@@ -43,7 +45,7 @@
         <div class="card-body">
             <h5 class="card-title">Productos destacados</h5>
             <p class="card-text">Anillos, pulseras, collares y aros de plata y acero blanco</p>
-            <a href="/product" class="btn btn-primary button-mobile-products">Ver Productos Disponibles</a>
+            <a href="/products" class="btn btn-primary button-mobile-products">Ver Productos Disponibles</a>
         </div>
         <div>
             <!-- Imagenes deslizables -->
@@ -58,21 +60,18 @@
                     <!-- Visualizacion de los ultimos 3 productos agregados a la base de datos -->
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <a href="/product#{{ products.0.0 }}">
-                                <img src="{{ products.0.3 }}" class="d-block w-100 carousel-image"
-                                    alt="{{ products.0.1 }}">
+                            <a href="/products#{{ products.0.0 }}">
+                                <img src="{{ products.0.3 }}" class="d-block w-100 carousel-image" alt="{{ products.0.1 }}">
                             </a>
                         </div>
                         <div class="carousel-item">
-                            <a href="/product#{{ products.1.0 }}">
-                                <img src="{{ products.1.3 }}" class="d-block w-100 carousel-image"
-                                    alt="{{ products.1.1 }}">
+                            <a href="/products#{{ products.1.0 }}">
+                                <img src="{{ products.1.3 }}" class="d-block w-100 carousel-image" alt="{{ products.1.1 }}">
                             </a>
                         </div>
                         <div class="carousel-item">
-                            <a href="/product#{{ products.2.0 }}">
-                                <img src="{{ products.2.3 }}" class="d-block w-100 carousel-image"
-                                    alt="{{ products.2.1 }}">
+                            <a href="/products#{{ products.2.0 }}">
+                                <img src="{{ products.2.3 }}" class="d-block w-100 carousel-image" alt="{{ products.2.1 }}">
                             </a>
                         </div>
                         <!-- Flechas para controlar el carrusel 1 -->
@@ -86,7 +85,6 @@
                         </a>
                     </div>
                 </div>
-
                 <!-- Carrusel 2 -->
                 <div id="carousel2" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
@@ -97,21 +95,18 @@
                     <!-- Visualizacion de los ante ultimos 3 productos agregados -->
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <a href="/product#{{ products.3.0 }}">
-                                <img src="{{ products.3.3 }}" class="d-block w-100 carousel-image"
-                                    alt="{{ products.3.1 }}">
+                            <a href="/products#{{ products.3.0 }}">
+                                <img src="{{ products.3.3 }}" class="d-block w-100 carousel-image" alt="{{ products.3.1 }}">
                             </a>
                         </div>
                         <div class="carousel-item">
-                            <a href="/product#{{ products.4.0 }}">
-                                <img src="{{ products.4.3 }}" class="d-block w-100 carousel-image"
-                                    alt="{{ products.4.1 }}">
+                            <a href="/products#{{ products.4.0 }}">
+                                <img src="{{ products.4.3 }}" class="d-block w-100 carousel-image" alt="{{ products.4.1 }}">
                             </a>
                         </div>
                         <div class="carousel-item">
-                            <a href="/product#{{ products.5.0 }}">
-                                <img src="{{ products.5.3 }}" class="d-block w-100 carousel-image"
-                                    alt="{{ products.5.1 }}">
+                            <a href="/products#{{ products.5.0 }}">
+                                <img src="{{ products.5.3 }}" class="d-block w-100 carousel-image" alt="{{ products.5.1 }}">
                             </a>
                         </div>
                         <!-- Flechas para controlar el carrusel 2 -->
@@ -124,9 +119,9 @@
                             <span class="sr-only">Next</span>
                         </a>
                     </div>
+                </div>
             </span>
         </div>
     </div>
-</div>
 </div>
 {% endblock %}

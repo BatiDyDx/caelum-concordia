@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Estilos y titulo propio ya que no se extiende de layout.html -->
+    <title>Caelum · Login</title>
+    <link rel="icon" href="{{ url_for('static', filename='icon.ico') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css')}}">
+</head>
+<body>
+    <div class="content pt-4 login">
+        <h1>Administración de <a id="brand" class="navbar-brand" href="/">Caelum</a></h1>
+        <article class="container">
+            <h2>Inicio de Sesión</h2>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <!-- Mensajes flash para avisos de contraseña o usuario incorrecto -->
+                        <div id="flash-div" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <p class="flash_message">{{ message }}</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <!-- Formulario para ingresar datos del usuario e iniciar sesión -->
+            <form class="log-form"name="form" method="POST">
+                <input class="form-control" id="User" name="username" type="text" placeholder="Inserte su usuario" required>
+                <input class="form-control" id="Password" name="password" type="password" placeholder="Inserte su contraseña" required>
+                <button class="btn btn-info" id="Button_login" type="submit">Aceptar</button>
+            </form>
+        </article>
+    </div>
+</body>
+</html>

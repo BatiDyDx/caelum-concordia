@@ -1,0 +1,61 @@
+{% extends 'layout.html'%}
+
+{% block title %} Productos {% endblock %}
+
+{% block content %}
+<ul class="list-group">
+    <li>
+        <!-- Barra de navegacion con acceso directo a las categorias -->
+        <nav id="navbar-products" class="navbar navbar-light bg-light">
+            <h2 class="navbar-brand mb-01">Nuestros productos</h2>
+            <ul class="nav nav-pills">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="false">Articulos</a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        {% for category in categories %}
+                        <a class="dropdown-item" href="#{{category.0}}"
+                            style="background: inherit; color: inherit">{{ category.0 }}</a>
+                        <div role="separator" class="dropdown-divider"></div>
+                        {% endfor %}
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </li>
+    <li>
+        <!-- Productos separados tarjetas por categorias -->
+        <div class="scrollspy">
+            {% for category in categories %}
+                <div class="card-row card-row-products" id="{{category.0}}">
+                    <div class="card">
+                        <!-- Titulo de la tarjeta -Categoria- -->
+                        <div class="card-header">
+                            <h5>{{ category.0 }}</h5>
+                            <!-- Botón para colapsar categoría -->
+                            <img class="collapse-button" name="btn-collapse-category" src="{{ url_for('static', filename='img/arrow.png') }}">
+                        </div>
+                        <!-- Cuerpo de la tarjeta -Descripcion e imagen del producto- -->
+                        <div class="media-body p-3" name="category-card-body">
+                            {% for product in products %}
+                                {% if product.1 == category.0 %}
+                                    <a class="media pt-3" href="/products/{{product.0}}" id="{{product.0}}">
+                                        <img src="{{ product.3 }}" class="media-item mr-3" alt="{{ product.1 }}">
+                                        <div class="media-body">
+                                            <h5 class="mt-0">{{ product.1 }}</h5>
+                                            <p>{{ product.2 }}</p>
+                                        </div>
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </li>
+</ul>
+{% endblock %}
+{% block scripts %}
+<script src="{{url_for('static', filename='javascript/collapse_button.js')}}"></script>
+{% endblock %}

@@ -3,13 +3,19 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="Sitio web de Caelum accesorios Concordia">
+  <meta name="keywords" content="Caelum accesorios, Caelum Concordia, Caelum">
+  <meta name="author" content="Caelum">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caelum</title>
+  <!-- Titulo y bloque para extender el titulo -->
+  <title>Caelum · {% block title %}{% endblock %}</title>
   <link rel="icon" href="{{ url_for('static', filename='icon.ico') }}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+  <!-- Bloque para añadir estilos -->
+  {% block styles %}{% endblock %}
 </head>
 
 <body>
@@ -23,7 +29,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto">
         <a class="nav-link active" href="/">Home<span class="sr-only">(current)</span></a>
-        <a class="nav-link" href="/product">Productos</a>
+        <a class="nav-link" href="/products">Productos</a>
         <a class="nav-link" href="/about" tabindex="-1" aria-disabled="true">Acerca</a>
       </div>
     </div>
@@ -32,7 +38,7 @@
   <div class='content pt-4'>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
-    {% for message in messages%}
+    {% for message in messages %}
     <div class="alert alert-success alert-dismissible fade show" role="alert">
       <p class="flash_message">{{ message }}</p>
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -45,7 +51,7 @@
     <!-- Extendemos contenido para que uson los otros archivos html -->
     {% block content %}
 
-    {%endblock%}
+    {% endblock %}
   </div>
   <!-- Pie de pagina -->
   <footer>
@@ -63,10 +69,10 @@
                 src="{{ url_for('static', filename= 'img/instagram_logo_black.png')}}">
             </a>
           </li>
-          <li class="contact-list-element">
+          <li class="contact-list-element" style="display: none;">
             <a class="footer_link" href="tel:+5493454931611">
               WhatsApp
-              <img class='whatsapp_logo' src="{{ url_for('static', filename= '/img/whatsapp_logo_black.png')}}">
+              <img class='whatsapp_logo' src="{{ url_for('static', filename= 'img/whatsapp_logo_black.png')}}">
             </a>
           </li>
           <li class="contact-list-element">
@@ -82,22 +88,28 @@
           aria-label="Inserte su correo electronico" aria-describedby="button-addon" required>
         <div class="input-group-append">
           <button class="btn btn-info" type="submit" id="submit-button">Suscribirse</button>
-          <a href="/delete_page" class="btn btn-danger">Desuscribirse</a>
+          <button formaction="/delete_suscriber" class="btn btn-danger">Desuscribirse</button>
         </div>
       </form>
     </div>
     <!-- Seccion inferior del pie de pagina -->
     <div class="footer_div_bottom">
-      <p>Caelum &copy;|<a class="bottom-link" href="https://github.com/BatiDyDx" target="tab">Powered by Bati</a></p>
+      <p name="secret-link">Caelum &copy;|<a class="bottom-link" href="https://github.com/BatiDyDx" target="tab">Powered by Bati</a></p>
     </div>
   </footer>
+  <!-- Scripts en JavaScript para animaciones -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+  integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+  integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="{{ url_for('static', filename='javascript/main.js')}}"></script>
+  <!-- Bloque para añadir scripts -->
+  {% block scripts %}{% endblock %}
 </body>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-  integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-  integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
 
 </html>

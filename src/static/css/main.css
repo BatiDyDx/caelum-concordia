@@ -1,7 +1,14 @@
+/* Estilos base */
+:root{
+    --primary-color: #c5acfff6;
+    --secondary-color: rgb(250, 233, 196);
+    --contrast-color: rgba(96, 1, 163, 0.548)
+}
+
 /* Estilos del archivo entero de base */
 html, body{
     height: 100%;
-    background: #FFCC99;
+    background: var(--primary-color);
     color: #000000
 }
 
@@ -128,7 +135,16 @@ a.founders_name{
 .card-row-products a.media{
     color:inherit;
 }
-
+/* Estilos del boton para colapsar categorias */
+div.card-row-products div.card-header img.collapse-button{
+    rotate: 180deg;
+    width:25px;
+    height: 25px;
+    position: absolute;
+    right:0px;
+    top:0px;
+    margin: 15px 15px 0 0;
+}
 /* Article en product_view */
 div.article-head{
     display:flex;
@@ -149,24 +165,7 @@ p.product-description{
     text-align:center;
 }
 
-/* Division en Desuscribirse */
-div.unsuscribe-div{
-    width:50%;
-    height:350px;
-    background:rgba(0, 255, 255, 0.562);
-    border-radius:.25rem;
-}
-/* Formulario en Desuscribirse */
-div.unsuscribe-div form.input-group{
-    width:70%;
-    margin-inline: auto;
-    padding-top: 15px;
-}
-.unsuscribe-div .btn{
-    width: 100%;
-}
-
-/* Constraints para dispositivos móviles*/
+/* Constraints para dispositivos móviles */
 @media only screen and (max-width: 600px){
     /* Barra de navegacion y titulos en listas de Productos y Acerca De */
     .navbar-brand{
@@ -237,22 +236,6 @@ div.unsuscribe-div form.input-group{
     div.article-head img{
         height: 300px;
         width: 300px;
-    }
-
-    /* Division para desuscripcion en Desuscribirse */
-    div.unsuscribe-div{
-        width:unset;
-        height:370px;
-        position: relative;
-    }
-    div.unsuscribe-div p.unsuscribe-message{
-        text-align: center;
-    }
-    div.unsuscribe-div form.input-group{
-        position: absolute;
-        left: 20px;
-        right: 20px;
-        padding-top: 15px;
     }
 }
 

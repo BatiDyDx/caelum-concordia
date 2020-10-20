@@ -1,0 +1,227 @@
+/* Estilos para la página de Log In */
+div.login{
+    text-align: center;
+}
+div.login a#brand{
+    color:aquamarine;
+    text-decoration: underline;
+}
+article.container{
+    width:900px;
+}
+/* Formulario para iniciar sesión */
+form.log-form{
+    display:flex;
+    justify-content: space-between;
+}
+form.log-form input.form-control{
+    width:350px;
+    margin-inline-end: 10px;
+}
+button#Button_login{
+    width: 100px;
+}
+/* Division flash para mensajes */
+div#flash-div{
+    height:50px;
+}
+div#flash-div>p.flash_message{
+    margin:unset;
+}
+
+/* Estilos para la página de admin */
+div.admin-div{
+    background-color: white;
+    border-radius: 0.25rem;
+    margin-bottom: 3rem;
+}
+table{
+    width:100%;
+}
+td, th{
+    border-bottom: 1px solid rgba(58, 58, 58, 0.274);
+    text-align:center;
+}
+th{
+    height:50px;
+}
+tr.body-row:hover{
+    background-color: #7edcf375; /* rgba(173, 173, 173, 0.527) */
+}
+td.td-admin a{
+    color:inherit;
+    font-weight: bold;
+}
+td.td-admin a:hover{
+    color:indianred;
+}
+/* Tabla de productos */
+td.td-admin#Image>img{
+    width:100px;
+    height:100px;
+}
+#ID{
+    width:10%;
+}
+#Description{
+    width:40%;
+    text-align: initial;
+}
+#Image{
+    width:15%;
+}
+#UserID{
+    width:20%
+}
+#Email{
+    text-align: initial;
+    padding-left: 15px;
+}
+/* Leyenda de la tabla */
+caption.table-caption{
+    width:100%;
+    text-align:center;
+}
+caption.table-caption div{
+    display:flex;
+    justify-content: space-around;
+}
+caption.table-caption div a{
+    margin-left:10px;
+}
+caption.table-caption div form{
+    display: flex;
+}
+form input[name="id"]{
+    width: 200px
+}
+form input[name="confirm"]{
+    width: 250px
+}
+/* Tabla de usuarios */
+table.table-users th, table.table-users td{
+    border-right: 1px solid rgba(58, 58, 58, 0.274);
+}
+table.table-users td#UserContact a > img{
+    width:35px; 
+    height:35px;
+    margin-bottom:7px;
+}
+/* Boton flotante */
+div.floating-button{
+    position: fixed;
+    right: 10px;
+    bottom: 30px;
+    z-index: 1;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+}
+div.floating-button>button.scroll_top_button{
+    width: 60px;
+    height: 60px;
+    background-color: var(--contrast-color);
+    border-radius: inherit;
+    border: 0;
+    padding: 0;
+}
+div.floating-button>button.scroll_top_button img{
+    width: 50px;
+    height: 50px;
+}
+
+/* Estilos para la pagina de editar y agregar productos */
+div.edit-page-div{
+    background-color: var(--secondary-color);
+    border-radius: .25rem;
+    width: 50%;
+}
+/* Estilos del formulario */
+form.edit_page_form{
+    display:grid;
+}
+form.edit_page_form>div{
+    padding-bottom:10px;
+}
+form.edit_page_form>div.row-1{
+    position: relative;
+}
+form.edit_page_form>div.row-1>select{
+    position: absolute; 
+    right: 0px;
+    bottom: 15px
+}
+form.edit_page_form>div.row-1>div.category-div>input{
+    width: 60%
+}
+form.edit_page_form>div.row-4, form.edit_page_form>div.row-5{
+    text-align: center;
+}
+div.edit-page-div form label{
+    margin-top: 16px;
+}
+div.edit-page-div img#URL_img{
+    width:100px;
+    height:100px;
+}
+/* Boton para recargar imagen */
+div.edit-page-div img[name="reload_arrow"]{
+    width:30px;
+    height:30px;
+}
+
+/* Constraints para dispositivos móviles */
+@media only screen and (max-width: 700px){
+    /* Estilos de la pagina de Log In */
+    div.login article.container{
+        width: unset;
+        padding: 0;
+        margin: 0;
+    }
+    div.login a#brand{
+        font-size: inherit;
+    }
+    div.login article.container form.log-form{
+        display: block;
+    }
+    div.login article.container form.log-form>input{
+        width: 100%;
+    }
+    form.log-form>input{
+        margin-bottom: 5px;
+    }
+    /* Estilos de la pagina Admin */
+    div.admin-div{
+        overflow-x: auto;
+    }
+    div.admin-div table{
+        width: unset;
+    }
+    #ID{
+        width:15%;
+    }
+    #Category{
+        width:30%;
+    }
+    caption.table-caption{
+        width: inherit;
+    }
+    caption.table-caption div .caption-element{
+        margin-inline: 20px;
+    }
+    caption.table-caption div a{
+        height: min-content;
+    }
+    caption.table-caption div form{
+    position: relative;
+    }
+    caption.table-caption div form>input{
+        width: 215px !important;
+    }
+    caption.table-caption div form>input[name = 'confirm']{
+        position: absolute;
+        top: 38px;
+    }
+    caption.table-caption div form>button{
+        padding-block: 0px;
+    }    
+}

@@ -223,5 +223,14 @@ div.edit-page-div img[name="reload_arrow"]{
     }
     caption.table-caption div form>button{
         padding-block: 0px;
-    }    
+    }
+    div.edit-page-div{
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    div.edit-page-div div.row-1 > select{
+        position: absolute; 
+        left: 0px;
+        bottom: unset;
+    }
 }

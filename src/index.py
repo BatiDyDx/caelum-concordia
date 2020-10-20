@@ -21,10 +21,9 @@ app.config['MYSQL_DB'] = 'ma4j48xxoy3udlvp'
 mysql = MySQL(app)
 
 #Definimos clave y duración de la sesión
-secret_key = os.urandom(12).hex()
-app.config['SECRET_KEY'] = secret_key
+app.config['SECRET_KEY'] = 'SECRET_KEY'
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=5)
-app.config.update(SESSION_COOKIE_SECURE = True)
+app.config.update(SESSION_COOKIE_SAMESITE="None", SESSION_COOKIE_SECURE = True)
 
 
 #Ruta principal
@@ -148,8 +147,8 @@ def login():
             session.clear()
             #Agregamos el usuario a la sesión
             session['username'] = user.username
-            #Mantenemos la sesión para que no se mantenga tras cerrar el navegador
-            session.permanent = False
+            #Mantenemos la sesión para que se mantenga tras cerrar el navegador
+            session.permanent = True
             return redirect(url_for('admin'))
         else:
             flash('La contraseña no coincide con la del usuario')

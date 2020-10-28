@@ -14,7 +14,7 @@
 <body>
     <div class="content pt-4 login">
         <h1>Administración de <a id="brand" class="navbar-brand" href="/">Caelum</a></h1>
-        <article class="container">
+        <section class="container">
             <h2>Inicio de Sesión</h2>
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
@@ -32,7 +32,7 @@
                 <input class="form-control" id="Password" name="password" type="password" placeholder="Inserte su contraseña" required>
                 <button class="btn btn-info" id="Button_login" type="submit">Aceptar</button>
             </form>
-        </article>
+        </section>
     </div>
 </body>
 </html>

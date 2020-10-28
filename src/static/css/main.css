@@ -171,9 +171,11 @@ p.product-description{
     .navbar-brand{
         font-size:x-large;
     }
-
+    section#Home{
+        text-align: center;
+    }
     /* Division Jumbotron */
-    .jumbotron{
+    div.jumbotron{
         height:460px;
         text-align: center;
     }

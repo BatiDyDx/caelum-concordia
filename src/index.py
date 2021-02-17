@@ -1,6 +1,7 @@
 import os
 from datetime import timedelta
-from flask import (Flask, 
+from flask import (
+    Flask, 
     render_template, 
     send_from_directory, 
     request, 
@@ -8,7 +9,8 @@ from flask import (Flask,
     flash, 
     url_for,
     g,
-    session)
+    session
+)
 from flask_mysqldb import MySQL
 from login import users
 

@@ -19,13 +19,6 @@ class Users:
         self.username = username
         self.password = password
 
-    def __repr__(self):
-        """
-        Representacion visual del usuario
-        :return: str
-        """
-        return f"<User:{self.username}, Password:{self.password}>"
-
 #Para cada elemento en el archivo, instanciamos un objeto
 users = []
 for i in range(len(users_list)):

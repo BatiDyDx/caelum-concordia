@@ -29,7 +29,7 @@
         <!-- Cuerpo de la tabla -->
         {% for product in products %}
             <tr class="body-row" id="{{product.0}}">
-                <td class="td-admin" id="ID"><a href="/products#{{ product.0 }}">{{ product.0 }}</a></td>
+                <td class="td-admin" id="ID"><a href="/products/{{ product.0 }}">{{ product.0 }}</a></td>
                 <td class="td-admin" id="Category"><a href="/products#{{ product.1 }}">{{ product.1 }}</a></td>
                 <td class="td-admin" id="Description">{{ product.2 }}</td>
                 <td class="td-admin" id="Image"><img src="{{ product.3 }}"></td>
@@ -38,7 +38,7 @@
                 {% elif product.4 == 0 %}
                 <td class="td-admin" id="Stock">Fuera de Stock</td>
                 {% endif %}
-                <td><a id="{{ product.0 }}" class="btn btn-info" href="/admin/edit_product/{{product.0}}">Editar</a></td>
+                <td><a id="{{ product.0 }}" class="btn btn-info" href="/admin/edit_product/{{ product.0 }}">Editar</a></td>
             </tr>
         {% endfor %}
         <!-- Leyenda de la tabla -->
